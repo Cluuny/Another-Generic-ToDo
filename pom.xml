@@ -10,7 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>API-Resource-Server</module>
+        <module>API-Main-Resource-Server</module>
+        <module>API-Authorization-Server</module>
     </modules>
 
     <properties>

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: "API-Authorization-Server"
+  datasource:
+    url: "jdbc:mysql://localhost:3307/db"
+    username: "db_user"
+    password: "securePassword"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+  docker:
+    compose:
+      lifecycle-management: start_and_stop
+server:
+  port: 9090

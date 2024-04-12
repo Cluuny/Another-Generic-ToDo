@@ -2,7 +2,7 @@ spring:
   application:
     name: "API-Resource-Server"
   datasource:
-    url: "jdbc:mysql://localhost:3306/anothergenerictodo_db"
+    url: "jdbc:mysql://localhost:3307/db"
     username: "db_user"
     password: "securePassword"
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,7 +10,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-#  security:
-#    oauth2:
-#      resourceserver:
-#
+  docker:
+    compose:
+      lifecycle-management: start_and_stop
+server:
+  port: 7070
