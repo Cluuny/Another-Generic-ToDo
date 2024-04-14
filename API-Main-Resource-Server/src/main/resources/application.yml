@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: "API-Resource-Server"
@@ -13,5 +14,15 @@ spring:
   docker:
     compose:
       lifecycle-management: start_and_stop
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:9090"
 server:
   port: 7070
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

@@ -1,4 +1,4 @@
-package dev.cluuny.todo.apiauthorizationserver.model;
+package dev.cluuny.todo.apiauthorizationserver.model.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

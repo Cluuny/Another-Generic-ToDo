@@ -1,5 +1,6 @@
-package dev.cluuny.todo.apiauthorizationserver.model;
+package dev.cluuny.todo.apiauthorizationserver.model.user;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -7,12 +8,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
+@Getter
 @RequiredArgsConstructor
 public class SecurityUser implements UserDetails {
 
     private final UserEntity user;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

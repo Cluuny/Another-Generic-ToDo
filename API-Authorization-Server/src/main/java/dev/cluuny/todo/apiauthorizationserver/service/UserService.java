@@ -1,9 +1,10 @@
 package dev.cluuny.todo.apiauthorizationserver.service;
 
-import dev.cluuny.todo.apiauthorizationserver.model.SecurityUser;
-import dev.cluuny.todo.apiauthorizationserver.model.UserEntity;
+import dev.cluuny.todo.apiauthorizationserver.model.user.SecurityUser;
+import dev.cluuny.todo.apiauthorizationserver.model.user.UserEntity;
 import dev.cluuny.todo.apiauthorizationserver.persistence.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,6 +20,7 @@ public class UserService implements UserDetailsService {
 
     //In this case the parameter username is in fact the email of the user who wants to Log in.
     @Override
+    @Cacheable(value = "userAuthentication", key = "'userDetails'")
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<UserEntity> user = userRepository.findUserByEmail(username);
         System.out.println(user);
