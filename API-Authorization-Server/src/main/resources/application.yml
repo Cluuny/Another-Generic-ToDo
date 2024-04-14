@@ -3,8 +3,8 @@ spring:
     name: "API-Authorization-Server"
   datasource:
     url: "jdbc:mysql://localhost:3307/db"
-    username: "db_user"
-    password: "securePassword"
+    username: "api_rest_user"
+    password: "api_rest_user"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
@@ -13,3 +13,5 @@ spring:
       lifecycle-management: start_and_stop
 server:
   port: 9090
+  servlet:
+    context-path: "/api/v1"
