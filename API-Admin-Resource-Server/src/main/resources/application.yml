@@ -1,18 +1,8 @@
 spring:
   application:
     name: "API-Admin-Resource-Server"
-  datasource:
-    url: "jdbc:mysql://localhost:3307/db"
-    username: "api_rest_user"
-    password: "api_rest_user"
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    hibernate:
-      ddl-auto: update
     show-sql: true
-  docker:
-    compose:
-      lifecycle-management: start_and_stop
 server:
   servlet:
-    context-path: "/admin"
+    context-path: /admin
