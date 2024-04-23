@@ -11,6 +11,7 @@
 
     <modules>
         <module>API-Admin-Resource-Server</module>
+        <module>API-Authorization-Server</module>
     </modules>
 
     <properties>

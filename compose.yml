@@ -32,3 +32,19 @@ services:
      depends_on:
        - redis_db
        - postgres_db
+  api-authorization-server:
+    container_name: "API-Authorization-Server"
+    build: API-Authorization-Server
+    ports:
+      - "9090:9090"
+    env_file:
+      - ./.env
+    environment:
+      - spring.jpa.hibernate.ddl-auto=update
+      - spring.datasource.url=${DATABASE_URL}
+      - spring.datasource.username=${DATABASE_USER}
+      - spring.datasource.password=${DATABASE_PASSWORD}
+      - spring.datasource.driver-class-name=${DATABASE_DRIVER}
+    depends_on:
+      - redis_db
+      - postgres_db
