@@ -12,6 +12,7 @@
     <modules>
         <module>API-Admin-Resource-Server</module>
         <module>API-Authorization-Server</module>
+        <module>API-Main-Resource-Server</module>
     </modules>
 
     <properties>

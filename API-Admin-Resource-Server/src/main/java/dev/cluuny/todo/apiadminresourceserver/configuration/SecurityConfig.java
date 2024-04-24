@@ -20,14 +20,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.httpBasic(Customizer.withDefaults());
-        http.formLogin(Customizer.withDefaults());
-        http.csrf(AbstractHttpConfigurer::disable);
-        http.logout(logout -> {
-            logout.logoutUrl("/logout")
-                    .invalidateHttpSession(true)
-                    .deleteCookies("SESSION")
-                    .logoutSuccessUrl("/");
-        });
+//        http.formLogin(Customizer.withDefaults());
+//        http.csrf(AbstractHttpConfigurer::disable);
+        http.logout(logout -> logout.logoutUrl("/logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("SESSION")
+                .logoutSuccessUrl("/"));
         http.authorizeHttpRequests(httpRequest ->
                 httpRequest
                         .requestMatchers(HttpMethod.POST, "/user").permitAll()

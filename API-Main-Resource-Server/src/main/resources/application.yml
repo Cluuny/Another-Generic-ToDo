@@ -2,18 +2,8 @@
 spring:
   application:
     name: "API-Resource-Server"
-  datasource:
-    url: "jdbc:mysql://localhost:3307/db"
-    username: "api_rest_user"
-    password: "api_rest_user"
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    hibernate:
-      ddl-auto: update
     show-sql: true
-  docker:
-    compose:
-      lifecycle-management: start_and_stop
   security:
     oauth2:
       resourceserver:
@@ -23,8 +13,3 @@ server:
   port: 7070
   servlet:
     context-path: "/api/v1"
-logging:
-  level:
-    org:
-      springframework:
-        security: DEBUG
