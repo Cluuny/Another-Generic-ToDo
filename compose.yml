@@ -29,8 +29,8 @@ services:
        - spring.datasource.username=${DATABASE_USER}
        - spring.datasource.password=${DATABASE_PASSWORD}
        - spring.datasource.driver-class-name=${DATABASE_DRIVER}
-       - spring.data.redis.port=6379
-       - spring.data.redis.host=redis_db
+       - spring.data.redis.port=${REDIS_PORT}
+       - spring.data.redis.host=${REDIS_HOST}
      depends_on:
        - redis_db
        - postgres_db
@@ -66,4 +66,17 @@ services:
     depends_on:
       - redis_db
       - postgres_db
+      - api-authorization-server
+  api-oauth2-client:
+    container_name: "API-OAuth2-Client"
+    build: API-OAuth2-Client
+    ports:
+      - "6060:6060"
+    environment:
+      - spring.security.oauth2.client.provider.spring.issuer-uri=${OAUTH2_CLIENT_ISSUER_URI}
+      - application.resourcerserver-uri=${OAUTH2_CLIENT_RESOURCESERVER_URI}
+    depends_on:
+      - redis_db
+      - postgres_db
+      - api-admin-resource-server
       - api-authorization-server

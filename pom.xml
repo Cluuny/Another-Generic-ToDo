@@ -13,6 +13,7 @@
         <module>API-Admin-Resource-Server</module>
         <module>API-Authorization-Server</module>
         <module>API-Main-Resource-Server</module>
+        <module>API-OAuth2-Client</module>
     </modules>
 
     <properties>
